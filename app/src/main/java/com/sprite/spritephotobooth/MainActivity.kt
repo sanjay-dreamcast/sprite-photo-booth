@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.sprite.spritephotobooth.Base.BaseActivity
 import com.sprite.spritephotobooth.data.model.SpriteFeature
 import com.sprite.spritephotobooth.databinding.ActivityMainBinding
+import com.sprite.spritephotobooth.ui.SelectGenderActivity
 import com.sprite.spritephotobooth.ui.SpriteFeaturesAdapter
 
 class MainActivity : BaseActivity() {
@@ -36,9 +37,6 @@ class MainActivity : BaseActivity() {
     }
 
     override fun initViews() {
-        // Calling the override functions from
-        // the Linear Layout Manager inner class
-
         binding?.spriteFeatureRc?.apply {
             layoutManager = myLinearLayoutManager
             adapter =  mSpriteFeaturesAdapter
@@ -47,6 +45,9 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setupListener() {
+        binding?.continueButton?.setOnClickListener {
+            SelectGenderActivity.start(this@MainActivity)
+        }
     }
 
     override fun loadData() {
@@ -55,11 +56,11 @@ class MainActivity : BaseActivity() {
     private fun getFeatureList(): List<SpriteFeature> {
         // Create a list of SpriteFeature objects
         return listOf(
-            SpriteFeature(id = 1, featureName = "Feature 1"),
-            SpriteFeature(id = 2, featureName = "Feature 2"),
-            SpriteFeature(id = 4, featureName = "Feature 3"),
-            SpriteFeature(id = 5, featureName = "Feature 3"),
-            SpriteFeature(id = 6, featureName = "Feature 3"),
+            SpriteFeature(id = 1, featureName = "Select Gender"),
+            SpriteFeature(id = 2, featureName = "Select Scene"),
+            SpriteFeature(id = 4, featureName = "Strike a Pose"),
+            SpriteFeature(id = 5, featureName = "Select the AI Avatar"),
+            SpriteFeature(id = 6, featureName = "Download or Share on Email!"),
         )
     }
 }

@@ -13,6 +13,15 @@
         android:theme="@style/Theme.SpritePhotoBooth"
         tools:targetApi="31">
         <activity
+            android:name=".ui.StrikePoseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.SelectGenderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.SelectGenderScreen"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
