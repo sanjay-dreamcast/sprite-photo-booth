@@ -45,6 +45,7 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setupListener() {
+
         binding?.continueButton?.setOnClickListener {
             SelectGenderActivity.start(this@MainActivity)
         }
@@ -62,5 +63,11 @@ class MainActivity : BaseActivity() {
             SpriteFeature(id = 5, featureName = "Select the AI Avatar"),
             SpriteFeature(id = 6, featureName = "Download or Share on Email!"),
         )
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finishAffinity()
     }
 }

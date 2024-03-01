@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:ignore="MissingDefaultResource">
+
+        <include
+            android:id="@+id/layout"
+            layout="@layout/toolbar_layout"
+            tools:layout_editor_absoluteX="40dp"
+            tools:layout_editor_absoluteY="195dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:id="@+id/edit"
+            android:layout_marginHorizontal="40dp"
+            app:layout_constraintBottom_toTopOf="@+id/img_sprite"
+            app:layout_constraintTop_toBottomOf="@+id/recyScene"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/metric_medium"
+                android:text="Full Name"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/labelName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/metric_medium"
+                android:text="Whatsapp Number"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+            <EditText
+
+                android:id="@+id/editText"
+                android:layout_width="0dp"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_height="50dp"
+                android:background="@drawable/bg_button_home"
+                android:fontFamily="@font/metric_medium"
+                android:hint="Enter your Full Name"
+                android:paddingHorizontal="10dp"
+
+                android:textSize="@dimen/text_size_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/label" />
+            <EditText
+
+                android:id="@+id/editTextName"
+                android:layout_width="0dp"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_height="50dp"
+                android:maxLength="10"
+                android:inputType="number"
+                android:digits="0123456789"
+                android:background="@drawable/bg_button_home"
+                android:fontFamily="@font/metric_medium"
+                android:hint="Enter Whatsapp Number"
+                android:paddingHorizontal="10dp"
+                android:textSize="@dimen/text_size_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/labelName" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <ImageView
+            android:id="@+id/recyScene"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginBottom="40dp"
+            android:layout_marginTop="20dp"
+            android:elevation="1dp"
+            android:src="@drawable/preview"
+            app:layout_constraintBottom_toTopOf="@+id/edit"
+            app:layout_constraintTop_toBottomOf="@+id/layout"
+            tools:layout_editor_absoluteX="40dp" />
+
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/appCompatButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_button"
+            android:fontFamily="@font/metric_semibold"
+            android:visibility="gone"
+            android:paddingHorizontal="@dimen/dp_10"
+            android:paddingVertical="@dimen/dp_10"
+            android:text="Whataspp"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/img_sprite"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnSubmit"
+            app:layout_constraintTop_toTopOf="@+id/img_sprite" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSubmit"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bg_button"
+            android:fontFamily="@font/metric_medium"
+            android:paddingHorizontal="@dimen/dp_10"
+            android:paddingVertical="@dimen/dp_10"
+            android:text="Submit"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_medium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/img_sprite"
+            app:layout_constraintTop_toBottomOf="@+id/edit" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/appCompatButton3"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_button_home"
+            android:fontFamily="@font/metric_medium"
+            android:paddingHorizontal="@dimen/dp_30"
+            android:paddingVertical="@dimen/dp_10"
+            android:text="Skip"
+            android:textAllCaps="false"
+            android:textSize="@dimen/text_size_medium"
+            android:layout_marginEnd="@dimen/dp_20"
+            android:textColor="#359444"
+            app:layout_constraintBottom_toBottomOf="@+id/btnSubmit"
+            app:layout_constraintEnd_toStartOf="@+id/btnSubmit"
+            app:layout_constraintTop_toTopOf="@+id/btnSubmit" />
+
+        <ImageView
+            android:id="@+id/img_sprite"
+            android:layout_width="95dp"
+            android:layout_height="124dp"
+            android:background="@drawable/sprite_bottle"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -36,17 +36,15 @@
             app:layout_constraintTop_toTopOf="@+id/featureIdTxt"
             app:layout_constraintVertical_bias="0.5"
             tools:text="0fdfdf1" />
-        <View
+        <ImageView
             android:id="@+id/divider"
-            android:layout_width="1dp"
+            android:layout_width="wrap_content"
+            android:src="@drawable/dash"
+            android:rotation="90"
             android:layout_height="40dp"
-            android:background="@drawable/dashed_vertical_line"
             app:layout_constraintTop_toBottomOf="@id/featureIdTxt"
             app:layout_constraintStart_toStartOf="@id/featureIdTxt"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintEnd_toEndOf="@id/featureIdTxt"
-            android:layout_marginStart="@dimen/dp_8"
-            android:layout_marginTop="@dimen/dp_4"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -2,6 +2,7 @@
 <layout xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,63 +17,66 @@
             android:textColor="@android:color/black"
             android:textSize="36sp"
             app:fontFamily="@font/metric_medium"
-            app:layout_constraintVertical_bias="0.4"
+            android:layout_marginTop="-60dp"
             app:layout_constraintBaseline_toBottomOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+           />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/maleButton"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_marginStart="70dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_30"
             android:background="@drawable/bg_round_green_10dp"
             android:clickable="true"
             android:focusable="true"
+            android:gravity="center"
             android:paddingVertical="20dp"
-            android:paddingStart="@dimen/dp_30"
-            android:paddingEnd="@dimen/dp_30"
             android:text="@string/male"
             android:textColor="@android:color/white"
-            app:fontFamily="@font/metric_medium"
             android:textSize="@dimen/sp_28"
-            android:layout_marginEnd="@dimen/dp_25"
-            app:layout_constraintHorizontal_chainStyle="packed"
+            app:fontFamily="@font/metric_medium"
+
             app:layout_constraintEnd_toStartOf="@+id/femaleButton"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/selectGender" />
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/femaleButton"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginEnd="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_30"
+            android:background="@drawable/bg_round_green_10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:paddingVertical="20dp"
+            android:text="@string/female"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_28"
+            app:fontFamily="@font/metric_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/maleButton"
+            app:layout_constraintTop_toBottomOf="@id/selectGender" />
+
+        <ImageView
+            android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/female"
-            android:paddingStart="@dimen/dp_30"
-            android:paddingEnd="@dimen/dp_30"
-            android:paddingVertical="20dp"
-            android:background="@drawable/bg_round_green_10dp"
-            android:textColor="@android:color/white"
-            app:layout_constraintStart_toEndOf="@id/maleButton"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginStart="@dimen/dp_25"
-            app:layout_constraintTop_toBottomOf="@id/selectGender"
-            android:clickable="true"
-            app:fontFamily="@font/metric_medium"
-            android:layout_marginTop="@dimen/dp_30"
-            android:focusable="true"
-            android:textSize="@dimen/sp_28"
-            android:layout_marginBottom="@dimen/dp_20"
-            />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/directoryImage"
-            android:layout_width="467dp"
-            android:layout_height="235dp"
-            android:background="@drawable/sprite_three_bootle_image"
+            android:adjustViewBounds="true"
+            android:paddingHorizontal="70dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/sprite_three_bootle_image"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

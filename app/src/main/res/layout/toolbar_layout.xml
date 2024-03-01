@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:src="@drawable/iv_back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="Select a Scene"
+            android:id="@+id/tvTitle"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_medium"
+            android:fontFamily="@font/metric_medium"
+            android:layout_height="match_parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

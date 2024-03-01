@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-feature android:name="android.hardware.camera.any" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,14 +18,23 @@
         android:theme="@style/Theme.SpritePhotoBooth"
         tools:targetApi="31">
         <activity
+            android:name=".ui.PreviewFrameActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.StrikePoseActivity"
             android:exported="false" />
         <activity
             android:name=".ui.SelectGenderActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.SelectGenderScreen"
+            android:name=".ui.PreviewWhatappActivity"
             android:exported="false" />
+        <activity
+        android:name=".ui.SelectSceneActivity"
+        android:exported="false" />
+        <activity
+        android:name=".ui.SendWhatsappActivity"
+        android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

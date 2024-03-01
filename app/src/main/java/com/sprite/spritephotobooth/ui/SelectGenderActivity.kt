@@ -39,7 +39,11 @@ class SelectGenderActivity : BaseActivity() {
 
     override fun setupListener() {
         binding?.maleButton?.setOnClickListener {
-            StrikePoseActivity.start(this@SelectGenderActivity)
+            SelectSceneActivity.start(this@SelectGenderActivity,"male")
+        }
+
+        binding?.femaleButton?.setOnClickListener {
+            SelectSceneActivity.start(this@SelectGenderActivity,"female")
         }
     }
 

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <androidx.core.widget.NestedScrollView
+  <!--  <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_height="match_parent">-->
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".MainActivity">
@@ -26,57 +27,58 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/spriteFeatureRc"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:scrollbars="none"
-                app:spanCount="2"
+                android:layout_height="0dp"
                 android:layout_marginHorizontal="@dimen/dp_37"
-                android:orientation="vertical"
-                tools:listitem="@layout/item_sprite_feature"
-                android:fadeScrollbars="false"
-                app:layout_constraintVertical_bias="0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/directoryImage"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:layout_marginTop="@dimen/dp_25"
-                />
+                android:fadeScrollbars="false"
+                android:orientation="vertical"
+
+                android:scrollbars="none"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toTopOf="@+id/continueButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/directoryImage"
+                app:layout_constraintVertical_bias="0"
+                app:spanCount="2" />
+
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/continueButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/continue_text"
-                android:textSize="@dimen/sp_25"
+                android:layout_marginTop="@dimen/dp_15"
+                android:background="@drawable/bg_round_green_10dp"
+                android:clickable="true"
+                android:drawablePadding="33dp"
+                android:layout_marginBottom="10dp"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:paddingVertical="20dp"
                 android:paddingStart="@dimen/dp_30"
                 android:paddingEnd="@dimen/dp_30"
-                android:paddingVertical="20dp"
-                android:drawablePadding="33dp"
-                android:background="@drawable/bg_round_green_10dp"
+                android:text="@string/continue_text"
                 android:textColor="@android:color/white"
-                android:gravity="center_vertical"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:clickable="true"
-                app:fontFamily="@font/metric_medium"
+                android:textSize="@dimen/sp_25"
                 app:drawableEndCompat="@drawable/btn_arrow"
-                android:focusable="true"
-                app:layout_constraintTop_toBottomOf="@id/spriteFeatureRc"
+                app:fontFamily="@font/metric_medium"
                 app:layout_constraintBaseline_toBottomOf="parent"
-                android:layout_marginBottom="@dimen/dp_20"
-                android:layout_marginTop="@dimen/dp_15"
-                />
+                app:layout_constraintBottom_toTopOf="@+id/img_sprite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+               />
+
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/img_sprite"
                 android:layout_width="125dp"
-                android:layout_height="184dp"
+                android:layout_height="174dp"
                 android:background="@drawable/sprite_bottle"
-                app:layout_constraintTop_toTopOf="@id/continueButton"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1"
                 app:layout_constraintStart_toEndOf="@id/continueButton"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                />
+               />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.core.widget.NestedScrollView>
+<!--    </androidx.core.widget.NestedScrollView>-->
 </layout>

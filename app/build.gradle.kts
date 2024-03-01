@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+
 }
 
 android {
@@ -46,4 +48,15 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    // CameraX core library using camera2 implementation
+    implementation ("androidx.camera:camera-camera2:1.3.1")
+    // CameraX Lifecycle Library
+    implementation ("androidx.camera:camera-lifecycle:1.3.1")
+    // CameraX View class
+    implementation ("androidx.camera:camera-view:1.3.1")
+
+
+    implementation ("com.github.bumptech.glide:glide:4.13.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.13.0")
 }
