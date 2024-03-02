@@ -6,4 +6,11 @@
     </style>
 
     <style name="Theme.SpritePhotoBooth" parent="Base.Theme.SpritePhotoBooth" />
+    <style name="my_dialog_theme" parent="ThemeOverlay.AppCompat.Dialog">
+        <item name="colorAccent">@color/colorPrimaryDark</item>                   <!--header background-->
+        <item name="android:windowBackground">@color/white</item>     <!--calendar background-->
+        <item name="android:colorControlActivated" tools:targetApi="lollipop">@color/black</item> <!--selected day-->
+        <item name="android:textColorPrimary">@color/black</item> <!--days of the month-->
+        <item name="android:textColorSecondary">@color/black</item>    <!--days of the week-->
+    </style>
 </resources>

@@ -3,11 +3,14 @@ package com.sprite.spritephotobooth.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import androidx.databinding.DataBindingUtil
 import com.sprite.spritephotobooth.Base.BaseActivity
 import com.sprite.spritephotobooth.MainActivity
 import com.sprite.spritephotobooth.R
-
+import android.view.WindowManager
+import com.bumptech.glide.Glide
 
 import com.sprite.spritephotobooth.databinding.AcivityWhatsappBinding
 
@@ -26,10 +29,24 @@ class PreviewWhatappActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
         binding = DataBindingUtil.setContentView(this,R.layout.acivity_whatsapp)
 
 
         init()
+
+        binding!!.layout.tvTitle.text="Scan the QR code, download the image"
+        binding!!.layout.ivBack.setOnClickListener {
+            finish()
+        }
+        Log.e("@@id",""+intent.getStringExtra("id"))
+        Log.e("@@ai_img",""+intent.getStringExtra("ai_img"))
+
+        Glide.with(this).load(intent.getStringExtra("ai_img").toString()).into(binding!!.recyScene)
+        Glide.with(this).load(intent.getStringExtra("ai_qr").toString()).into(binding!!.imageView2)
     }
 
     override fun initArguments() {
@@ -45,8 +62,10 @@ class PreviewWhatappActivity : BaseActivity() {
 
 
         binding!!.btnWhatsapp.setOnClickListener {
-            val intent = Intent(this@PreviewWhatappActivity, SendWhatsappActivity::class.java)
-            startActivity(intent)
+            val intent1 = Intent(this@PreviewWhatappActivity, SendWhatsappActivity::class.java)
+            intent1.putExtra("id",intent.getStringExtra("id").toString())
+            intent1.putExtra("ai_img",intent.getStringExtra("ai_img").toString())
+            startActivity(intent1)
         }
 
     }

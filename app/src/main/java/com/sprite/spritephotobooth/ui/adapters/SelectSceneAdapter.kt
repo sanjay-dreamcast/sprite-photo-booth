@@ -3,6 +3,8 @@ package com.sprite.spritephotobooth.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,12 +25,32 @@ class SelectSceneAdapter (private var sceneItem: ArrayList<SceneItem>? = null ,v
 
     override fun onBindViewHolder(holder: SelectSceneAdapter.SceneItemsVH, position: Int) {
         holder.loadData(sceneItem?.get(position))
-        holder.itemView.setOnClickListener { itemClick.onItemClick(position) }
+        holder.ItemClickOn(sceneItem?.get(position))
+
     }
     inner  class SceneItemsVH(private val binding : ItemSelectSceneBinding): RecyclerView.ViewHolder(binding.root){
         fun loadData(sceneItem : SceneItem?){
             Glide.with(mContext).load(sceneItem!!.image).into(binding.ivImage)
         }
+
+        fun ItemClickOn(sceneItem : SceneItem?){
+
+            binding.ivImage.setOnClickListener {
+                binding.ivImageClick.visibility=View.VISIBLE
+                binding.ivTick.visibility=View.VISIBLE
+
+                itemClick.onItemClick(position)
+                Handler(Looper.getMainLooper()).postDelayed({
+                    binding.ivImageClick.visibility=View.GONE
+                    binding.ivTick.visibility=View.GONE
+
+                    //Do something after 100ms
+                }, 500)
+
+            }
+
+        }
+
     }
 
     interface ItemClick{

@@ -3,6 +3,8 @@ package com.sprite.spritephotobooth.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,7 +16,7 @@ import com.sprite.spritephotobooth.databinding.AcivitySelectSceneBinding
 import com.sprite.spritephotobooth.databinding.ActivityMainBinding
 import com.sprite.spritephotobooth.model.SceneItem
 import com.sprite.spritephotobooth.ui.SpriteFeaturesAdapter
-
+import android.view.WindowManager
 class SelectSceneActivity : BaseActivity() {
     private var binding: AcivitySelectSceneBinding? = null
    var selectSceneAdapter:SelectSceneAdapter?=null
@@ -39,6 +41,10 @@ class SelectSceneActivity : BaseActivity() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
         binding = DataBindingUtil.setContentView(this,R.layout.acivity_select_scene)
         binding?.apply {
             setContentView(this.root)
@@ -47,25 +53,29 @@ class SelectSceneActivity : BaseActivity() {
         }
 
         binding!!.layout.tvTitle.text="Select a Scene"
+        binding!!.layout.ivBack.setOnClickListener {
+            finish()
+        }
 
         init()
     }
 
     override fun initArguments() {
-       intentTYPE=intent.getStringExtra("intentTYPE").toString()
+
 
     }
 
     override fun initViews() {
-
+        intentTYPE=intent.getStringExtra("gender").toString()
+        Log.e("@@intentTYPE",intentTYPE)
         if (intentTYPE=="male")
         {
-            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.scene_1)))
-            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.scene_2)))
+            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.scene_5)))
             sceneItem.add(SceneItem(resources.getDrawable(R.drawable.scene_3)))
             sceneItem.add(SceneItem(resources.getDrawable(R.drawable.scene_4)))
-            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.scene_5)))
             sceneItem.add(SceneItem(resources.getDrawable(R.drawable.scene_6)))
+            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.scene_2)))
+            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.scene_1)))
         }else{
             sceneItem.add(SceneItem(resources.getDrawable(R.drawable.scene_1)))
             sceneItem.add(SceneItem(resources.getDrawable(R.drawable.scene_2)))
@@ -78,7 +88,12 @@ class SelectSceneActivity : BaseActivity() {
         selectSceneAdapter= SelectSceneAdapter(sceneItem,this,object :SelectSceneAdapter.ItemClick{
             override fun onItemClick(position: Int) {
                 sceneItem[position].image
-                StrikePoseActivity.start(this@SelectSceneActivity)
+                val intent1 = Intent(this@SelectSceneActivity, StrikePoseActivity::class.java)
+                intent1.putExtra("gender", intent.getStringExtra("gender"))
+                intent1.putExtra("template", position)
+                startActivity(intent1)
+
+
 
             }
         })

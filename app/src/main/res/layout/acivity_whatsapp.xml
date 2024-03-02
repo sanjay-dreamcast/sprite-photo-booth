@@ -13,42 +13,9 @@
         android:background="@color/white"
         tools:ignore="MissingDefaultResource">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/toolbar"
-            android:paddingVertical="@dimen/dp_5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginStart="@dimen/dp_16"
-                android:src="@drawable/iv_back"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tvTitle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/metric_medium"
-                android:gravity="center"
-                android:paddingHorizontal="20dp"
-                android:text="Scan the QR code, download\nthe image"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_size_medium"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView3"
-                tools:layout_editor_absoluteY="0dp" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <include
+            android:id="@+id/layout"
+            layout="@layout/toolbar_layout" />
 
 
         <ImageView
@@ -57,62 +24,79 @@
             android:elevation="1dp"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:src="@drawable/preview"
+
+            android:paddingHorizontal="40dp"
             android:layout_marginHorizontal="10dp"
             app:layout_constraintBottom_toTopOf="@+id/imageView2"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+            app:layout_constraintTop_toBottomOf="@+id/layout" />
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_marginHorizontal="10dp"
-            android:background="@drawable/bg_qr"
             android:padding="@dimen/dp_10"
-            android:src="@drawable/qr_code_cos_e"
+            android:background="@drawable/barcode"
             app:layout_constraintBottom_toTopOf="@+id/img_sprite"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnWhatsapp"
-            android:layout_width="120dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/bg_button"
-            android:fontFamily="@font/metric_medium"
-            android:paddingHorizontal="@dimen/dp_10"
-            android:paddingVertical="@dimen/dp_10"
-            android:text="Whatsapp"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_size_medium"
+            android:gravity="center"
+            android:weightSum="2"
+            android:layout_marginLeft="120dp"
+            android:layout_marginRight="120dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/img_sprite"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            android:orientation="horizontal">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnHome"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_button_home"
-            android:fontFamily="@font/metric_medium"
-            android:paddingHorizontal="@dimen/dp_30"
-            android:paddingVertical="@dimen/dp_10"
-            android:text="Home"
-            android:textAllCaps="false"
-            android:textSize="@dimen/text_size_medium"
-            android:layout_marginEnd="@dimen/dp_20"
-            android:textColor="#359444"
-            app:layout_constraintBottom_toBottomOf="@+id/btnWhatsapp"
-            app:layout_constraintEnd_toStartOf="@+id/btnWhatsapp"
-            app:layout_constraintTop_toTopOf="@+id/btnWhatsapp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnHome"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:background="@drawable/bg_button_home"
+                android:fontFamily="@font/metric_medium"
+                android:paddingHorizontal="@dimen/dp_30"
+                android:paddingVertical="@dimen/dp_10"
+                android:text="Home"
+                android:textAllCaps="false"
+                android:textSize="@dimen/text_size_medium"
+                android:layout_marginEnd="@dimen/dp_20"
+                android:textColor="#359444"
+                app:layout_constraintBottom_toBottomOf="@+id/btnWhatsapp"
+                app:layout_constraintEnd_toStartOf="@+id/btnWhatsapp"
+                app:layout_constraintTop_toTopOf="@+id/btnWhatsapp" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnWhatsapp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="70dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginLeft="@dimen/dp_20"
+                android:background="@drawable/bg_button"
+                android:fontFamily="@font/metric_medium"
+                android:paddingHorizontal="@dimen/dp_10"
+                android:paddingVertical="@dimen/dp_10"
+                android:text="Whatsapp"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_medium"
+                />
+        </LinearLayout>
+
 
         <ImageView
             android:id="@+id/img_sprite"
-            android:layout_width="95dp"
+            android:layout_width="wrap_content"
             android:layout_height="124dp"
-            android:background="@drawable/sprite_bottle"
+            android:adjustViewBounds="true"
+            android:src="@drawable/sprite_bottle"
+            android:layout_marginRight="@dimen/dp_20"
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

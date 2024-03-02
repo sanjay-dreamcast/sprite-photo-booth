@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margintopmainscene">100dp</dimen>
+    <dimen name="marignlogomain">150dp</dimen>
+    <dimen name="paddinghorizontalspritnbottom">110dp</dimen>
+    <dimen name="marighTopMinus">-90dp</dimen>
+    <dimen name="marignhori_selectscene">120dp</dimen>
+</resources>

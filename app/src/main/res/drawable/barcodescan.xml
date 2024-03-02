@@ -1,0 +1,52 @@
+<!-- res/drawable/qr_code_corner.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Background square -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFFFF" /> <!-- Background color, change as needed -->
+            <corners android:radius="8dp" /> <!-- Adjust the corner radius as needed -->
+        </shape>
+    </item>
+
+    <!-- Top-left corner -->
+    <item
+        android:left="0dp"
+        android:top="0dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#000000" /> <!-- Color of the corner square -->
+            <size android:width="16dp" android:height="16dp" /> <!-- Size of the corner square -->
+        </shape>
+    </item>
+
+    <!-- Top-right corner -->
+    <item
+        android:right="0dp"
+        android:top="0dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#000000" />
+            <size android:width="16dp" android:height="16dp" />
+        </shape>
+    </item>
+
+    <!-- Bottom-left corner -->
+    <item
+        android:left="0dp"
+        android:bottom="0dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#000000" />
+            <size android:width="16dp" android:height="16dp" />
+        </shape>
+    </item>
+
+    <!-- Bottom-right corner -->
+    <item
+        android:right="0dp"
+        android:bottom="0dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#000000" />
+            <size android:width="16dp" android:height="16dp" />
+        </shape>
+    </item>
+
+</layer-list>

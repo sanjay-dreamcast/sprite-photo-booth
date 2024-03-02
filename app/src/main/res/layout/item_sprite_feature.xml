@@ -14,7 +14,7 @@
             android:textColor="@android:color/white"
             android:textSize="@dimen/sp_24"
             android:padding="@dimen/dp_8"
-            app:fontFamily="@font/metric_medium"
+            app:fontFamily="@font/metric_regular"
             android:background="@drawable/bg_green_circle"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"

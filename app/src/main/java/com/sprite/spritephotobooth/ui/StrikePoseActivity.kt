@@ -11,6 +11,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.util.Log
 import android.view.MotionEvent
+import android.view.View
 import android.widget.Toast
 import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
@@ -23,7 +24,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
-
+import android.view.WindowManager
 class StrikePoseActivity : BaseActivity() {
     private var binding: ActivityStrikePoseBinding? = null
     private var imageCapture: ImageCapture? = null
@@ -52,6 +53,10 @@ class StrikePoseActivity : BaseActivity() {
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
         binding = ActivityStrikePoseBinding.inflate(layoutInflater)
         binding?.apply {
             setContentView(this.root)
@@ -59,6 +64,11 @@ class StrikePoseActivity : BaseActivity() {
             executePendingBindings()
         }
         init()
+        binding!!.layout.tvTitle.text="Strike a Pose"
+        binding!!.layout.ivBack.setOnClickListener {
+            finish()
+        }
+
     }
 
     override fun initArguments() {
@@ -256,14 +266,22 @@ class StrikePoseActivity : BaseActivity() {
             object :ImageCapture.OnImageSavedCallback{
                 override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
                     val savedUri = Uri.fromFile(photoFile)
+                    Log.e("@@savedUri",""+savedUri)
                     val msg = "Photo capture succeeded: $savedUri"
                     savedFileName = photoFile.name
                     if (savedUri!=null)
                     {
-                        PreviewFrameActivity.start(this@StrikePoseActivity,savedFileName,savedUri)
+
+                        val intent1 = Intent(this@StrikePoseActivity, PreviewFrameActivity::class.java)
+                        intent1.putExtra("gender", intent.getStringExtra("gender").toString())
+                        intent1.putExtra("savedFileName", savedFileName)
+                        intent1.putExtra("imageuri", savedUri.toString())
+                        intent1.putExtra("template", intent.getIntExtra("template",0))
+                        startActivity(intent1)
+
                     }
-                    Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
-                    Log.d(TAG, msg)
+                //    Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
+                 //   Log.d(TAG, msg)
                 }
 
                 override fun onError(exc: ImageCaptureException) {

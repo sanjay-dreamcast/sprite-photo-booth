@@ -1,6 +1,8 @@
 package com.sprite.spritephotobooth
 
 import android.os.Bundle
+import android.view.View
+import android.view.WindowManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sprite.spritephotobooth.Base.BaseActivity
 import com.sprite.spritephotobooth.data.model.SpriteFeature
@@ -23,6 +25,11 @@ class MainActivity : BaseActivity() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         binding?.apply {
             setContentView(this.root)
