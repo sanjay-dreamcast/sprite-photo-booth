@@ -288,7 +288,7 @@ class PreviewFrameActivity : BaseActivity() {
         val map: HashMap<String, RequestBody> = HashMap<String, RequestBody>()
 
         map["image"] = RequestBody.create("text/plain".toMediaTypeOrNull(), base64)
-        map["template"] = RequestBody.create("text/plain".toMediaTypeOrNull(), template.toString())
+        map["template"] = RequestBody.create("text/plain".toMediaTypeOrNull(), if(gender.equals("male",ignoreCase = true)) "M"+template.toString() else "F"+template.toString())
         map["gender"] = RequestBody.create("text/plain".toMediaTypeOrNull(), gender.toString())
         val call = apiService.SendPhoto(zapping_user_search.toString(),map)
 

@@ -36,7 +36,7 @@ class SelectSceneActivity : BaseActivity() {
 
     private val myGridLayoutManager = object : GridLayoutManager(this,2) {
         override fun canScrollVertically(): Boolean {
-            return false
+            return true
         }
     }
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -70,19 +70,26 @@ class SelectSceneActivity : BaseActivity() {
         Log.e("@@intentTYPE",intentTYPE)
         if (intentTYPE=="male")
         {
-            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.scene_5)))
-            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.scene_3)))
-            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.scene_4)))
-            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.scene_6)))
-            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.scene_2)))
-            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.scene_1)))
+            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.m1)))
+            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.m2)))
+            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.m3)))
+            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.m4)))
+            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.m5)))
+            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.m6)))
+            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.m7)))
+            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.m8)))
+            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.m9)))
+            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.m10)))
+            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.m11)))
+            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.m12)))
         }else{
-            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.scene_1)))
-            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.scene_2)))
-            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.scene_3)))
-            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.scene_4)))
-            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.scene_5)))
-            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.scene_6)))
+            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.f1)))
+            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.f2)))
+            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.f3)))
+            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.f4)))
+            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.f5)))
+            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.f6)))
+            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.f7)))
         }
 
         selectSceneAdapter= SelectSceneAdapter(sceneItem,this,object :SelectSceneAdapter.ItemClick{

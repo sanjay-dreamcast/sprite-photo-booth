@@ -4,5 +4,5 @@
     <dimen name="marignlogomain">150dp</dimen>
     <dimen name="paddinghorizontalspritnbottom">110dp</dimen>
     <dimen name="marighTopMinus">-90dp</dimen>
-    <dimen name="marignhori_selectscene">120dp</dimen>
+    <dimen name="marignhori_selectscene">220dp</dimen>
 </resources>
