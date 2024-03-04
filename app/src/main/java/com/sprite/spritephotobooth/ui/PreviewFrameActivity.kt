@@ -4,10 +4,12 @@ import android.content.ContentResolver
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.Matrix
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.transition.Transition
 import android.util.Base64
 import android.util.Log
 import android.view.View
@@ -17,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.app.autofacedetectdemo.ui.apies.ApiService
 import com.app.autofacedetectdemo.ui.apies.NetworkAlertUtility
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.SimpleTarget
 import com.sprite.spritephotobooth.Base.BaseActivity
 import com.sprite.spritephotobooth.data.model.UploadPhoto
 import com.sprite.spritephotobooth.databinding.ActivityPreviewFrameBinding
@@ -92,6 +95,32 @@ class PreviewFrameActivity : BaseActivity() {
             finish()
         }
         Log.e("@@URI",""+intent.getStringExtra("imageuri"))
+  /*      Glide.with(this)
+            .asBitmap()
+            .load(intent.getStringExtra("imageuri"))
+            .into(object : SimpleTarget<Bitmap>() {
+                override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
+                    // Check if the image is mirrored
+                    val matrix = Matrix()
+                    matrix.preScale(-1f, 1f) // Flip horizontally
+
+                    val mirroredBitmap = Bitmap.createBitmap(resource, 0, 0, resource.width, resource.height, matrix, false)
+
+                    // Compare original and mirrored Bitmaps
+                    val isMirrored = areBitmapsEqual(resource, mirroredBitmap)
+
+                    // Use isMirrored as needed
+                    if (isMirrored) {
+                        // The image is mirrored
+                        // Handle accordingly
+                        Log.e("@true","1")
+                    } else {
+                        Log.e("@true","2")
+                        // The image is not mirrored
+                        // Handle accordingly
+                    }
+                }
+            })*/
         Glide.with(this).load(intent.getStringExtra("imageuri")).into(binding!!.recyScene)
         binding!!.btnConfirm.setOnClickListener {
 
@@ -119,6 +148,25 @@ class PreviewFrameActivity : BaseActivity() {
 
 
         }
+    }
+
+    private fun areBitmapsEqual(bitmap1: Bitmap, bitmap2: Bitmap): Boolean {
+        val width = bitmap1.width
+        val height = bitmap1.height
+
+        if (width != bitmap2.width || height != bitmap2.height) {
+            return false
+        }
+
+        for (x in 0 until width) {
+            for (y in 0 until height) {
+                if (bitmap1.getPixel(x, y) != bitmap2.getPixel(x, y)) {
+                    return false
+                }
+            }
+        }
+
+        return true
     }
     private fun getRetrofitInstance(baseUrl: String): Retrofit {
         val logging = HttpLoggingInterceptor()

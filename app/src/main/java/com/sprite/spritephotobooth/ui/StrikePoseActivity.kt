@@ -247,14 +247,17 @@ class StrikePoseActivity : BaseActivity() {
         // it the use case is null exit to the function
 //       This will be null If you tap the photo button before image capture is set up. Without the return statement, the app would crash if it was null.
         val imageCapture = imageCapture ?: return
+        val metadata = ImageCapture.Metadata()
+        metadata.isReversedHorizontal = lensFacing == CameraSelector.DEFAULT_FRONT_CAMERA
 
         //create timestamp photo file to hold image(for unique)
         val photoFile = File(outputDirectory, SimpleDateFormat(FILENAME_FORMAT, Locale.US).format(System.currentTimeMillis()) + ".jpg")
 
         // create outputOption object which contains file + metadata
         //  OutputFileOptions object where u can specify things about how your output would be
-        val outputOption = ImageCapture.OutputFileOptions.Builder(photoFile).build()
-
+        val outputOption = ImageCapture.OutputFileOptions.Builder(photoFile)
+            .setMetadata(metadata)
+            .build()
         // flash on when image click
         flash?.let { camera?.cameraControl?.enableTorch(it) } // enable torch
 

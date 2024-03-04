@@ -3,5 +3,5 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="oval">
     <corners android:radius="8dp" /> <!-- Adjust the radius as needed -->
-    <solid android:color="@color/green" /> <!-- Set your desired background color -->
+    <solid android:color="@color/white" /> <!-- Set your desired background color -->
 </shape>

@@ -46,7 +46,7 @@ class PreviewWhatappActivity : BaseActivity() {
         Log.e("@@ai_img",""+intent.getStringExtra("ai_img"))
 
         Glide.with(this).load(intent.getStringExtra("ai_img").toString()).into(binding!!.recyScene)
-        Glide.with(this).load(intent.getStringExtra("ai_qr").toString()).into(binding!!.imageView2)
+        Glide.with(this).load(intent.getStringExtra("ai_qr").toString()).into(binding!!.imageView21)
     }
 
     override fun initArguments() {

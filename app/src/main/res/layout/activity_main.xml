@@ -8,11 +8,13 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/bg_main"
             tools:context=".MainActivity">
 
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/directoryImage"
+                android:visibility="gone"
 
                 android:layout_width="@dimen/marignlogomain"
                 android:layout_height="@dimen/marignlogomain"
@@ -28,19 +30,19 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/spriteFeatureRc"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginHorizontal="@dimen/dp_37"
-                android:layout_marginTop="@dimen/dp_25"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_50"
+                android:layout_marginHorizontal="@dimen/_57dp"
+                android:layout_marginBottom="@dimen/dp_30"
                 android:fadeScrollbars="false"
                 android:orientation="vertical"
-                android:layout_marginBottom="@dimen/dp_30"
 
                 android:scrollbars="none"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintBottom_toTopOf="@+id/continueButton"
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/directoryImage"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0"
                 app:spanCount="2" />
 
@@ -48,11 +50,11 @@
                 android:id="@+id/continueButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="60dp"
                 android:background="@drawable/bg_round_green_10dp"
                 android:clickable="true"
                 android:drawablePadding="33dp"
-                android:layout_marginBottom="10dp"
                 android:focusable="true"
                 android:gravity="center_vertical"
                 android:paddingVertical="20dp"
@@ -63,11 +65,10 @@
                 android:textSize="@dimen/sp_25"
                 app:drawableEndCompat="@drawable/btn_arrow"
                 app:fontFamily="@font/metric_medium"
-                app:layout_constraintBaseline_toBottomOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/img_sprite"
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-               />
+                app:layout_constraintTop_toBottomOf="@+id/spriteFeatureRc" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/img_sprite"
@@ -75,6 +76,7 @@
                 android:adjustViewBounds="true"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="25dp"
+                android:visibility="gone"
                 android:src="@drawable/sprite_bottle"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

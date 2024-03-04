@@ -5,4 +5,5 @@
     <dimen name="marighTopMinus">-60dp</dimen>
     <dimen name="paddinghorizontalspritnbottom">80dp</dimen>
     <dimen name="marignhori_selectscene">100dp</dimen>
+    <dimen name="_57dp">57dp</dimen>
 </resources>
