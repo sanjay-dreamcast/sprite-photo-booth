@@ -336,6 +336,9 @@ class PreviewFrameActivity : BaseActivity() {
 
         val map: HashMap<String, RequestBody> = HashMap<String, RequestBody>()
 
+        Log.d("TAGG", "ApiHitQr: ${if(gender.equals("male",ignoreCase = true)) "M"+template.toString() else "F"+template.toString()}")
+
+        Log.d("TAGG", "ApiHitQr: ${gender}")
         map["image"] = RequestBody.create("text/plain".toMediaTypeOrNull(), base64)
         map["template"] = RequestBody.create("text/plain".toMediaTypeOrNull(), if(gender.equals("male",ignoreCase = true)) "M"+template.toString() else "F"+template.toString())
         map["gender"] = RequestBody.create("text/plain".toMediaTypeOrNull(), gender.toString())
@@ -352,8 +355,8 @@ class PreviewFrameActivity : BaseActivity() {
                         val intent = Intent(this@PreviewFrameActivity, PreviewWhatappActivity::class.java)
 
                         intent.putExtra("id", response!!.body()!!.data.id.toString())
-                        intent.putExtra("ai_img", response!!.body()!!.data.aiImg.toString())
-                        intent.putExtra("ai_qr", response!!.body()!!.data.aiQr.toString())
+                        intent.putExtra("ai_img", if(response!!.body()!!.data.aiImg != null) response!!.body()!!.data.aiImg!!.toString() else "")
+                        intent.putExtra("ai_qr", response!!.body()!!.data.aiQr!!.toString())
                         startActivity(intent)
 
                     }else{

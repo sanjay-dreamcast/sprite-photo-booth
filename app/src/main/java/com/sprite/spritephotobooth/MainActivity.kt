@@ -65,10 +65,10 @@ class MainActivity : BaseActivity() {
         // Create a list of SpriteFeature objects
         return listOf(
             SpriteFeature(id = 1, featureName = "Select Gender"),
-            SpriteFeature(id = 2, featureName = "Select Scene"),
-            SpriteFeature(id = 3, featureName = "Strike a Pose"),
-            SpriteFeature(id = 4, featureName = "Select the AI Avatar"),
-            SpriteFeature(id = 5, featureName = "Download or Share on WhatsApp!"),
+//            SpriteFeature(id = 2, featureName = "Select Scene"),
+            SpriteFeature(id = 2, featureName = "Strike a Pose"),
+            SpriteFeature(id = 3, featureName = "Select the AI Avatar"),
+            SpriteFeature(id = 4, featureName = "Download or Share on WhatsApp!"),
         )
     }
 

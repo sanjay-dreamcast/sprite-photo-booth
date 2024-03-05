@@ -24,10 +24,10 @@ data class Data(
     val image: String,
 
     @SerializedName("ai_img")
-    val aiImg: String,
+    val aiImg: String?,
 
     @SerializedName("ai_qr")
-    val aiQr: String,
+    val aiQr: String?,
 
     @SerializedName("updated_at")
     val updatedAt: String,

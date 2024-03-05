@@ -47,7 +47,7 @@ class SelectGenderActivity : BaseActivity() {
             val intent = Intent(this@SelectGenderActivity, StrikePoseActivity::class.java)
 
             intent.putExtra("gender", "male")
-            intent.putExtra("template", prefrence.getInt("template",0))
+            intent.putExtra("template", prefrence.getInt("mtemplate",0))
             startActivity(intent)
 
             val editor = getSharedPreferences("MY_PREFS_NAME", MODE_PRIVATE).edit()
@@ -60,7 +60,7 @@ class SelectGenderActivity : BaseActivity() {
             val prefrence = getSharedPreferences("MY_PREFS_NAME", MODE_PRIVATE)
             val intent = Intent(this@SelectGenderActivity, StrikePoseActivity::class.java)
             intent.putExtra("gender", "female")
-            intent.putExtra("template", prefrence.getInt("template",0))
+            intent.putExtra("template", prefrence.getInt("ftemplate",0))
             startActivity(intent)
 
             val editor = getSharedPreferences("MY_PREFS_NAME", MODE_PRIVATE).edit()
