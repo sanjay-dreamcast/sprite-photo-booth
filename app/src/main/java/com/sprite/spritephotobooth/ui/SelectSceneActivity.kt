@@ -56,27 +56,17 @@ class SelectSceneActivity : BaseActivity() {
         binding!!.layout.ivBack.setOnClickListener {
             finish()
         }
-
-        init()
-    }
-
-    override fun initArguments() {
-
-
-    }
-
-    override fun initViews() {
         intentTYPE=intent.getStringExtra("gender").toString()
         Log.e("@@intentTYPE",intentTYPE)
         if (intentTYPE=="male")
         {
             sceneItem.add(SceneItem(resources.getDrawable(R.drawable.m1)))
-            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.m2)))
+            //sceneItem.add(SceneItem(resources.getDrawable(R.drawable.m2)))
             sceneItem.add(SceneItem(resources.getDrawable(R.drawable.m3)))
-            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.m4)))
-            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.m5)))
+            //sceneItem.add(SceneItem(resources.getDrawable(R.drawable.m4)))
+            // sceneItem.add(SceneItem(resources.getDrawable(R.drawable.m5)))
             sceneItem.add(SceneItem(resources.getDrawable(R.drawable.m6)))
-            sceneItem.add(SceneItem(resources.getDrawable(R.drawable.m7)))
+           // sceneItem.add(SceneItem(resources.getDrawable(R.drawable.m7)))
             sceneItem.add(SceneItem(resources.getDrawable(R.drawable.m8)))
             sceneItem.add(SceneItem(resources.getDrawable(R.drawable.m9)))
             sceneItem.add(SceneItem(resources.getDrawable(R.drawable.m10)))
@@ -106,9 +96,18 @@ class SelectSceneActivity : BaseActivity() {
         })
         binding?.recyScene?.apply {
             layoutManager = myGridLayoutManager
-
             adapter =  selectSceneAdapter
         }
+        init()
+    }
+
+    override fun initArguments() {
+
+
+    }
+
+    override fun initViews() {
+
     }
 
     override fun setupListener() {

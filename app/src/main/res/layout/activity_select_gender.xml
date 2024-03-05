@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:text="@string/select_gender"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="36sp"
             app:fontFamily="@font/metric_medium"
             android:layout_marginTop="-250dp"
@@ -26,12 +26,12 @@
             app:layout_constraintTop_toTopOf="parent"
            />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/maleButton"
             android:layout_width="0dp"
-            android:layout_marginStart="70dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_30"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="28dp"
             android:background="@drawable/bg_round_green_10dp"
             android:clickable="true"
             android:focusable="true"
@@ -47,7 +47,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/selectGender" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/femaleButton"
             android:layout_width="0dp"
             android:layout_marginStart="@dimen/dp_20"
@@ -58,6 +58,7 @@
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"
+
             android:paddingVertical="20dp"
             android:text="@string/female"
             android:textColor="@android:color/white"

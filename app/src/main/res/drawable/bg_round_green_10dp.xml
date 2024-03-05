@@ -1,7 +1,38 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- rounded_background.xml -->
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle">
-    <corners android:radius="10dp" />
-    <solid android:color="@color/green" />
-</shape>
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--&lt;!&ndash; rounded_background.xml &ndash;&gt;-->
+<!--<shape xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:shape="rectangle">-->
+<!--    <corners android:radius="10dp" />-->
+<!--    <solid android:color="@color/green" />-->
+<!--</shape>-->
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+<!-- Pressed state -->
+<item android:state_pressed="true">
+    <shape android:shape="rectangle">
+        <corners android:radius="10dp" />
+        <!-- Define the background color or drawable for the pressed state -->
+        <solid android:color="@color/greendark" />
+    </shape>
+</item>
+
+<!-- Focused state -->
+<item android:state_focused="true">
+    <shape android:shape="rectangle">
+        <corners android:radius="10dp" />
+        <!-- Define the background color or drawable for the focused state -->
+        <solid android:color="@color/green" />
+    </shape>
+</item>
+
+<!-- Default state -->
+<item>
+    <shape android:shape="rectangle">
+        <corners android:radius="10dp" />
+        <!-- Define the background color or drawable for the default state -->
+        <solid android:color="@color/green" />
+    </shape>
+</item>
+
+</selector>

@@ -23,6 +23,7 @@ import com.bumptech.glide.request.target.SimpleTarget
 import com.sprite.spritephotobooth.Base.BaseActivity
 import com.sprite.spritephotobooth.data.model.UploadPhoto
 import com.sprite.spritephotobooth.databinding.ActivityPreviewFrameBinding
+import com.sprite.spritephotobooth.utils.appUtils
 import com.sprite.spritephotobooth.utils.deleteFileFromDirectory
 import com.sprite.spritephotobooth.utils.loadImage
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -345,24 +346,22 @@ class PreviewFrameActivity : BaseActivity() {
 
                 dismissProgressBar(this@PreviewFrameActivity)
 
-                if(response.body()==null)
+                if(response.code()==200 && response.body()!=null)
                 {
+                    if (response!!.body()!!.success!!) {
+                        val intent = Intent(this@PreviewFrameActivity, PreviewWhatappActivity::class.java)
 
-                    return
+                        intent.putExtra("id", response!!.body()!!.data.id.toString())
+                        intent.putExtra("ai_img", response!!.body()!!.data.aiImg.toString())
+                        intent.putExtra("ai_qr", response!!.body()!!.data.aiQr.toString())
+                        startActivity(intent)
+
+                    }else{
+                        Toast.makeText(this@PreviewFrameActivity,response!!.body()!!.message.toString(),Toast.LENGTH_LONG).show()
+                    }
                 }
-
-
-                if (response!!.body()!!.success!!) {
-                  val intent = Intent(this@PreviewFrameActivity, PreviewWhatappActivity::class.java)
-
-                    intent.putExtra("id", response!!.body()!!.data.id.toString())
-                   intent.putExtra("ai_img", response!!.body()!!.data.aiImg.toString())
-                   intent.putExtra("ai_qr", response!!.body()!!.data.aiQr.toString())
-                  startActivity(intent)
-
-                }else{
-               Toast.makeText(this@PreviewFrameActivity,"Something Went wrong",Toast.LENGTH_LONG).show()
-
+                else{
+                    appUtils.ConstantError(response.errorBody()!!.string(),this@PreviewFrameActivity)
                 }
 
 

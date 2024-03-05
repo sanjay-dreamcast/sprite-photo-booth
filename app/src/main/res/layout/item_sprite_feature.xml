@@ -11,7 +11,7 @@
             android:layout_height="48dp"
             android:gravity="center"
             tools:text="01"
-            android:textColor="#00AA50"
+            android:textColor="#079125"
             android:textSize="@dimen/sp_24"
             android:padding="@dimen/dp_8"
             app:fontFamily="@font/metric_regular"

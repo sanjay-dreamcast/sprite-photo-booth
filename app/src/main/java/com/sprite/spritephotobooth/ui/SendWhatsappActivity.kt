@@ -30,6 +30,7 @@ import com.bumptech.glide.Glide
 import com.sprite.spritephotobooth.MainActivity
 import com.sprite.spritephotobooth.data.model.UploadPhoto
 import com.sprite.spritephotobooth.data.model.VerifyModel
+import com.sprite.spritephotobooth.utils.appUtils
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.OkHttpClient
 import okhttp3.RequestBody
@@ -231,25 +232,20 @@ class SendWhatsappActivity : BaseActivity() {
 
                 dismissProgressBar(this@SendWhatsappActivity)
 
-                if(response.body()==null)
+                if(response.code()==200 && response.body()!=null)
                 {
-
-                    return
+                    if (response!!.body()!!.success!!) {
+                        val intent = Intent(this@SendWhatsappActivity, MainActivity::class.java)
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                        startActivity(intent)
+                        finish()
+                    }else{
+                        Toast.makeText(this@SendWhatsappActivity,response!!.body()!!.getMessage().toString(),Toast.LENGTH_LONG).show()
+                    }
                 }
-
-
-
-                if (response!!.body()!!.success!!) {
-                    val intent = Intent(this@SendWhatsappActivity, MainActivity::class.java)
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-                    startActivity(intent)
-                    finish()
-
-                }else{
-                    Toast.makeText(this@SendWhatsappActivity,response!!.body()!!.getMessage().toString(),Toast.LENGTH_LONG).show()
-
+                else{
+                    appUtils.ConstantError(response.errorBody()!!.string(),this@SendWhatsappActivity)
                 }
-
 
             }
 
